@@ -27,4 +27,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    // declaring ORM relationships
+    public function role(){
+        return $this->hasOne('App\Role');
+    }
+
+    public function billing(){
+        return $this->hasMany('App\Billing');
+    }
+
 }
