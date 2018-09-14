@@ -14,7 +14,11 @@ class Style extends Model
         'picture'
     ];
 
-    public function Billing(){
+    public function billing(){
         return $this->belongsToMany('App\Billing');
+    }
+
+    public function booking(){
+        return $this->belongsToMany('App\Booking');
     }
 }

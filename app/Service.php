@@ -15,4 +15,8 @@ class Service extends Model
         return $this->belongsToMany('App\Billing');
     }
 
+    public function booking(){
+        return $this->belongsToMany('App\Booking');
+    }
+
 }
