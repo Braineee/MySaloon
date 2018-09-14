@@ -5,17 +5,16 @@
         <div class="login-form">
             <div class="main-div">
                 <div class="panel">
-            <h2>Saloon Management System</h2>
+            <h2>MySalOOn</h2>
             <br>
             </div>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group">
-                        <label for="email" class="label">Username</label>
+                        <label for="inputEmail" class="label">Username</label>
                         <input 
                             type="email" 
                             name="email" 
-                            id="email" 
                             class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" 
                             id="inputEmail" 
                             placeholder="Email Address" 
@@ -28,11 +27,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password" class="label">Password</label>
+                        <label for="inputPassword" class="label">Password</label>
                         <input 
                             type="password" 
                             name="password" 
-                            id="password" 
                             class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" 
                             id="inputPassword" 
                             placeholder="Password" 

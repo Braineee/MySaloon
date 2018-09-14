@@ -28,7 +28,19 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/home';
+    protected function redirectTo()
+    {
+        $userName = Auth::user()->name;
+        
+        if(Auth::check()){
+            if(Auth::user()->role_id == 4){
+                return route('/home'); // return the home page if the user is a customer
+            }
+        }else{
+            return view('auth.login');
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -50,6 +62,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
+            'phone' => 'required|string',
+            'sex' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -65,7 +79,10 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'phone' => $data['phone'],
+            'sex' => $data['sex'],
             'email' => $data['email'],
+            'role_id' => 4,
             'password' => Hash::make($data['password']),
         ]);
     }

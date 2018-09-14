@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,21 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/home';
+    protected function redirectTo()
+    {
+        $userName = Auth::user()->name;
+        
+        if(Auth::check()){
+            if(Auth::user()->role_id == 4){
+                return route('/home'); // return the home page if the user is a customer
+            }else{
+                return route('bookings.index', compact('userName'));
+            }
+        }else{
+            return view('auth.login');
+        }
+    }
 
     /**
      * Create a new controller instance.
