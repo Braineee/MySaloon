@@ -18,3 +18,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function(){
+
+    Route::	resource('bookings', 'BookingController');
+    Route::	resource('billings', 'BilingController');
+
+
+    //official
+    Route::	resource('staffs', 'StaffController');
+    Route::	resource('assets', 'AssetController');
+    Route::	resource('roles', 'RoleController');
+
+    //logout function
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
+
+});
