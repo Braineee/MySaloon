@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use Illuminate\Http\Request;
+use App\Http\Requests\RoleCreateRequest;
 
 class RoleController extends Controller
 {
@@ -14,7 +15,12 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::check()){ 
+            //get the list of assets 
+            $roles = Role::all();
+            return view('roles.index', ['roles' => $roles]);
+        }
+        return view('auth.login');
     }
 
     /**
@@ -24,7 +30,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('roles.create');
     }
 
     /**
@@ -33,9 +39,33 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleCreateRequest $request)
     {
-        //
+        if(Auth::check()){
+        
+            $validated = $request->validated(); //validate the users input
+
+            if($validated){
+    
+                $role = Role::create([
+
+                    'role' => $request->input('name'),
+
+                ]);
+    
+                if($role){
+                    return redirect()->route('roles.index')
+                    ->with('success','Role was created successfully');
+                }else{
+                    return back()->withInput()->with('error','Sorry, role was not created');  
+                }
+
+            }else{
+                return back()->withInput()->with('error','Validation error');
+            }
+            
+        }
+        return back()->withInput()->with('error','Sorry role could not be created');
     }
 
     /**
@@ -57,7 +87,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        $role = Role::find($role);
+        return view('roles.edit', ['role' => $role]);
     }
 
     /**
@@ -67,9 +98,18 @@ class RoleController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(RoleCreateRequest $request, Role $role)
     {
-        //
+        $updateRole = Role::where('id', $role)->update([
+            'name' => $request->input('name'),
+        ]);
+
+        if($updaterole){
+            return redirect()->route('roles.index')
+            ->with('success', 'Role was updated successfully');
+        }
+        //redirect
+        return back()->withInput();
     }
 
     /**
@@ -80,6 +120,13 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $findRole = Role::find($role);
+        /*dump($findUser);
+        die();*/
+        if($findRole->delete()){
+            return redirect()->route('roles.index')->with('success', 'Role was deleted successfully');
+        }
+        //redirect
+        return back()->withInput('error', 'Role could not be deleted');
     }
 }

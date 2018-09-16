@@ -138,7 +138,7 @@ class StaffController extends Controller
      */
     public function update(StaffUpdateRequest $request, $user)
     {
-        ///save the company update
+        
         $updateUser = User::where('id', $user)->update([
             'name' => $request->input('name'),
             'phone' => $request->input('phone'),

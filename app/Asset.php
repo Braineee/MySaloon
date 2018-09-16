@@ -10,6 +10,7 @@ class Asset extends Model
         'ref_id', 
         'name', 
         'location',
-        'status'
+        'status',
+        'picture'
     ];
 }
