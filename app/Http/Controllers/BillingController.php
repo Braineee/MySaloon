@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Billing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BillingController extends Controller
 {

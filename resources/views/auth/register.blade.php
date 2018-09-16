@@ -9,7 +9,7 @@
             <h5>Register Here</h5>
             <br>
             </div>
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
                     <!-- input for full name -->
                     <div class="form-group">

@@ -27,6 +27,9 @@ Route::middleware(['auth'])->group(function(){
 
     //official
     Route::	resource('staffs', 'StaffController');
+    Route:: get('/staffs/{id}', 'StaffController@destroy')->name('staffs.destroy');
+
+
     Route::	resource('assets', 'AssetController');
     Route::	resource('roles', 'RoleController');
 

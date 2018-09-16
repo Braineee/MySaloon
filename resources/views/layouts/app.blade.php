@@ -12,11 +12,13 @@
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.min.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/upload_picture.js') }}" defer></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/avarta.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="container-fluid">
@@ -228,19 +230,19 @@
                             </h6>
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">
+                                    <a class="nav-link active" href="/bookings">
                                     <span data-feather="home"></span>
                                     Bookings <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="/billings">
                                     <span data-feather="file"></span>
                                     Billings
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="/customer">
                                     <span data-feather="users"></span>
                                     Customers
                                     </a>
@@ -256,19 +258,19 @@
                             </h6>
                             <ul class="nav flex-column mb-2">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="/accessories">
                                     <span data-feather="file-text"></span>
                                     Acessories
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="/styles">
                                     <span data-feather="file-text"></span>
                                     Styles
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="/services">
                                     <span data-feather="file-text"></span>
                                     Services
                                     </a>
@@ -282,7 +284,7 @@
                             </h6>
                             <ul class="nav flex-column mb-2">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="/staffs">
                                     <span data-feather="file-text"></span>
                                     Staff
                                     </a>
@@ -388,6 +390,8 @@
                 -->
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                    @include('alerts.error')
+                    @include('alerts.success')
                     <!--
                         main content goes here
                     -->
