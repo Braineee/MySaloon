@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Role;
 use Illuminate\Http\Request;
 use App\Http\Requests\RoleCreateRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller
 {
@@ -49,7 +50,7 @@ class RoleController extends Controller
     
                 $role = Role::create([
 
-                    'role' => $request->input('name'),
+                    'role' => $request->input('role'),
 
                 ]);
     
@@ -87,7 +88,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        $role = Role::find($role);
+        $role = Role::find($role->id);
         return view('roles.edit', ['role' => $role]);
     }
 
@@ -98,13 +99,13 @@ class RoleController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(RoleCreateRequest $request, Role $role)
+    public function update(Request $request, Role $role)
     {
-        $updateRole = Role::where('id', $role)->update([
-            'name' => $request->input('name'),
+        $updateRole = Role::where('id', $role->id)->update([
+            'role' => $request->input('role'),
         ]);
 
-        if($updaterole){
+        if($updateRole){
             return redirect()->route('roles.index')
             ->with('success', 'Role was updated successfully');
         }
@@ -120,7 +121,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        $findRole = Role::find($role);
+        $findRole = Role::find($role->id);
         /*dump($findUser);
         die();*/
         if($findRole->delete()){

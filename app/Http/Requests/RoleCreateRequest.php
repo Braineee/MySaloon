@@ -13,7 +13,7 @@ class RoleCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class RoleCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
+            'role' => 'required|string|unique:roles',
         ];
     }
 
@@ -36,7 +36,8 @@ class RoleCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Please enter name of asset',
+            'role.required' => 'Please enter name of role you wish to create.',
+            'role.unique' => 'This role already exists, please enter a different role.',
         ];
     }
 }

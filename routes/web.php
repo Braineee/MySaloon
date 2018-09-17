@@ -20,20 +20,26 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function(){
-
     Route::	resource('bookings', 'BookingController');
     Route::	resource('billings', 'BilingController');
 
+    //stocks
+    Route::	resource('accessories', 'AccessoryController');
+    Route:: get('/accessories/{id}', 'AccessoryController@destroy')->name('accessories.destroy');
+    
+    Route::	resource('stylies', 'StyleController');
+    Route:: get('/stylies/{id}', 'StyleController@destroy')->name('stylies.destroy');
+    Route::	resource('services', 'ServiceController');
+    Route:: get('/services/{id}', 'ServiceController@destroy')->name('services.destroy');
 
     //official
     Route::	resource('staffs', 'StaffController');
     Route:: get('/staffs/{id}', 'StaffController@destroy')->name('staffs.destroy');
-
-
     Route::	resource('assets', 'AssetController');
+    Route:: get('/assets/{id}', 'AssetController@destroy')->name('assets.destroy');
     Route::	resource('roles', 'RoleController');
+    Route:: get('/roles/{id}', 'AssetController@destroy')->name('roles.destroy');
 
     //logout function
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
-
 });

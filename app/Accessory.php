@@ -9,7 +9,8 @@ class Accessory extends Model
     protected $fillable = [
         'name', 
         'price', 
-        'picture'
+        'picture',
+        'quantity'
     ];
 
     public function billing_list(){

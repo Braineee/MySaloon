@@ -24,7 +24,7 @@ class AssetsCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|unique:users',
+            'name' => 'required|string|unique:assets',
             'location' => 'required|string',
             'status' => 'required|string',
             'image' => 'required|image'
@@ -40,9 +40,10 @@ class AssetsCreateRequest extends FormRequest
     {
         return [
             'name.required' => 'Please enter name of asset',
+            'name.unique' => 'This asset has been added already, Please add a number to the name if the assets are similar',
             'location.required' => 'Please select asset location',
-            'status.required' => 'Please select status of asset',
-            'image.required' => 'Please upload staffs picture'
+            'status.required' => 'Please select assets of asset',
+            'image.required' => 'Please upload assets picture'
         ];
     }
 }

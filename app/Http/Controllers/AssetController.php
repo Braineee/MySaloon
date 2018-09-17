@@ -6,6 +6,7 @@ use App\Asset;
 use Illuminate\Http\Request;
 use App\Http\Requests\AssetsCreateRequest;
 use App\Http\Requests\AssetsUpdateRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AssetController extends Controller
 {
@@ -108,7 +109,9 @@ class AssetController extends Controller
      */
     public function edit(Asset $asset)
     {
-        $asset = Asset::find($asset);
+        $asset = Asset::find($asset->id);
+        /*dump($asset);
+        die();*/
         return view('assets.edit', ['asset' => $asset]);
     }
 
@@ -121,7 +124,7 @@ class AssetController extends Controller
      */
     public function update(AssetsUpdateRequest $request, Asset $asset)
     {
-        $updateAsset = Asset::where('id', $asset)->update([
+        $updateAsset = Asset::where('id', $asset->id)->update([
             'name' => $request->input('name'),
             'location' => $request->input('location'),
             'status' => $request->input('status')
@@ -132,7 +135,7 @@ class AssetController extends Controller
             ->with('success', 'Asset was updated successfully');
         }
         //redirect
-        return back()->withInput();
+        return back()->withInput('error', 'Asset could not be updated');
     }
 
     /**
@@ -143,7 +146,7 @@ class AssetController extends Controller
      */
     public function destroy(Asset $asset)
     {
-        $findAsset = Asset::find($asset);
+        $findAsset = Asset::find($asset->id);
         /*dump($findUser);
         die();*/
         if($findAsset->delete()){

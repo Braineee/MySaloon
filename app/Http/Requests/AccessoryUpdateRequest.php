@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AssetsUpdateRequest extends FormRequest
+class AccessoryUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class AssetsUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'location' => 'required|string',
-            'status' => 'required|string'
+            'name' => 'required|string|unique:accessories',
+            'price' => 'required|string',
+            'quantity' => 'required|integer'
         ];
     }
 
@@ -38,9 +38,10 @@ class AssetsUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Please enter name of asset',
-            'location.required' => 'Please select asset location',
-            'status.required' => 'Please select status of asset'
+            'name.required' => 'Please enter name of accessory',
+            'price.required' => 'Please enter price for the accessory',
+            'quantity.integer' => 'Please enter a number for quantites',
+            'quantity.required' => 'Please enter quantity available for the accessory'
         ];
     }
 }

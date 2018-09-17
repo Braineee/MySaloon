@@ -101,7 +101,7 @@
                 id="role" 
                 class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" 
                 required>
-                <option value="">Select your gender</option>
+                <option value="">Select staff role</option>
                 @foreach($roles as $role)
                     <option value="{{ $role->id }}">{{ $role->role }}</option>
                 @endforeach

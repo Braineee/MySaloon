@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Saloon Assets</h1>
+    <h1 class="h2">Saloon Roles</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
 
-    <a href="assets/create" class="btn btn-sm btn-primary">Create New Asset</a>
+    <a href="roles/create" class="btn btn-sm btn-primary">Create New Role</a>
 
     </div>
 </div>
@@ -17,23 +17,17 @@
     <thead>
         <tr>
         <th>#</th>
-        <th>Ref_Id</th>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Status</th>
+        <th>Role</th>
         <th>Option</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($assets as $asset)
+        @foreach($roles as $role)
         <tr>
-        <td>{{ $asset->id }}</td>
-        <td>{{ $asset->ref_id }}</td>
-        <td>{{ $asset->name }}</td>
-        <td>{{ $asset->location }}</td>
-        <td>{{ $asset->status }}</td>
+        <td>{{ $role->id }}</td>
+        <td>{{ $role->role }}</td>
         <td>
-            <a href="/assets/{{ $asset->id }}/edit" class="btn btn-sm btn-primary">Edit</a>
+            <a href="/roles/{{ $role->id }}/edit" class="btn btn-sm btn-primary">Edit</a>
             <a href="" onClick="_Delete()" class="btn btn-sm btn-danger">Delete</a>
             <!-- delete proccedure -->
             <form
@@ -47,10 +41,10 @@
             </form>
             <script type="text/javascript">
                 function _Delete(){
-                    var _delete = confirm('Are you sure you want to delete this asset?');
+                    var _delete = confirm('Are you sure you want to delete this role?');
                     if(_delete){
                         event.preventDefault();
-                        document.getElementById('delete-form').setAttribute('action', '{{ route("assets.destroy", [$asset->id]) }}');
+                        document.getElementById('delete-form').setAttribute('action', '{{ route("roles.destroy", [$role->id]) }}');
                         document.getElementById('delete-form').submit();
                     }
                 }
