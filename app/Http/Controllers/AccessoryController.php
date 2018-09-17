@@ -63,14 +63,14 @@ class AccessoryController extends Controller
                     /*dump($newImageName); 
                     die();*/
                     //store the data
-                    $staff = Accessory::create([
+                    $acessories = Accessory::create([
                         'name' => $request->input('name'),
                         'price' => $request->input('price'),
                         'quantity' => $request->input('quantity'),
                         'picture' => $newImageName
                     ]);
         
-                    if($staff){
+                    if($acessories){
                         return redirect()->route('accessories.index')
                         ->with('success','Accessory was created successfully');
                     }else{

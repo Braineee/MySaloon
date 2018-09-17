@@ -26,9 +26,10 @@ Route::middleware(['auth'])->group(function(){
     //stocks
     Route::	resource('accessories', 'AccessoryController');
     Route:: get('/accessories/{id}', 'AccessoryController@destroy')->name('accessories.destroy');
+
+    Route::	resource('styles', 'StyleController');
+    Route:: get('/styles/{id}', 'StyleController@destroy')->name('styles.destroy');
     
-    Route::	resource('stylies', 'StyleController');
-    Route:: get('/stylies/{id}', 'StyleController@destroy')->name('stylies.destroy');
     Route::	resource('services', 'ServiceController');
     Route:: get('/services/{id}', 'ServiceController@destroy')->name('services.destroy');
 

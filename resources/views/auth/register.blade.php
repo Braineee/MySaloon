@@ -5,7 +5,7 @@
         <div class="login-form">
             <div class="main-div">
                 <div class="panel">
-            <h2>MySalOOn</h2>
+            <h2>Adam & Eve Beauty Saloon</h2>
             <h5>Register Here</h5>
             <br>
             </div>

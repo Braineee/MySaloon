@@ -5,7 +5,7 @@
         <div class="login-form">
             <div class="main-div">
                 <div class="panel">
-            <h2>MySalOOn</h2>
+            <h2>Adam & Eve Beauty Saloon</h2>
             <br>
             </div>
                 <form method="POST" action="{{ route('login') }}">
