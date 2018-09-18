@@ -78,77 +78,28 @@
                             </h6>
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">
-                                    <i class="fa fa-dashboard"></i>
-                                    Dashboard <span class="sr-only">(current)</span>
+                                    <a class="nav-link" href="/viewstyle">
+                                    <i class="fa fa-eye"></i>&ensp;
+                                    View Style
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file"></span>
-                                    Orders
+                                    <a class="nav-link active" href="/bookings">
+                                    <i class="fa fa-book"></i>&ensp;
+                                    Bookings <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="shopping-cart"></span>
-                                    Products
+                                    <a class="nav-link" href="/billings">
+                                    <i class="fa fa-file"></i>&ensp;
+                                    Billings
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="users"></span>
-                                    Customers
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="bar-chart-2"></span>
-                                    Reports
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="layers"></span>
-                                    Integrations
-                                    </a>
-                                </li>
-                            </ul>
-                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                                <span>Saved reports</span>
-                                <a class="d-flex align-items-center text-muted" href="#">
-                                    <span data-feather="plus-circle"></span>
-                                </a>
-                            </h6>
-                            <ul class="nav flex-column mb-2">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Current month
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Last quarter
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Social engagement
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Year-end sale
-                                    </a>
-                                </li>
+                                
                             </ul>
 
                         @elseif(Auth::user()->role_id == 3)
-                            <!--staff navbar-->
+                            <!--admin navbar-->
                             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                                 <span>Reports</span>
                                 <a class="d-flex align-items-center text-muted" href="#">
@@ -157,71 +108,54 @@
                             </h6>
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">
-                                    <span data-feather="home"></span>
-                                    Dashboard <span class="sr-only">(current)</span>
+                                    <a class="nav-link active" href="/bookings">
+                                    <i class="fa fa-book"></i>&ensp;
+                                    Bookings <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file"></span>
-                                    Orders
+                                    <a class="nav-link" href="/billings">
+                                    <i class="fa fa-file"></i>&ensp;
+                                    Billings
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="shopping-cart"></span>
-                                    Products
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="users"></span>
+                                    <a class="nav-link" href="/customers">
+                                    <i class="fa fa-users"></i>&ensp;
                                     Customers
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="bar-chart-2"></span>
-                                    Reports
+                                    <a class="nav-link" href="/viewstyle">
+                                    <i class="fa fa-eye"></i>&ensp;
+                                    View Style
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="layers"></span>
-                                    Integrations
-                                    </a>
-                                </li>
+                                
                             </ul>
                             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                                <span>Saved reports</span>
+                                <span>Stocks</span>
                                 <a class="d-flex align-items-center text-muted" href="#">
                                     <span data-feather="plus-circle"></span>
                                 </a>
                             </h6>
                             <ul class="nav flex-column mb-2">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Current month
+                                    <a class="nav-link" href="/accessories">
+                                    <i class="fa fa-square"></i>&ensp;
+                                    Acessories
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Last quarter
+                                    <a class="nav-link" href="/styles">
+                                    <i class="fa fa-square"></i>&ensp;
+                                    Styles
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Social engagement
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Year-end sale
+                                    <a class="nav-link" href="/services">
+                                    <i class="fa fa-square"></i>&ensp;
+                                    Services
                                     </a>
                                 </li>
                             </ul>
@@ -260,8 +194,7 @@
                                     </a>
                                 </li>
                                 
-                                
-                            </u>
+                            </ul>
                             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                                 <span>Stocks</span>
                                 <a class="d-flex align-items-center text-muted" href="#">
@@ -316,7 +249,7 @@
                             </ul>
 
                         @elseif(Auth::user()->role_id == 1)
-                            <!--manager navbar-->
+                            <!--admin navbar-->
                             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                                 <span>Reports</span>
                                 <a class="d-flex align-items-center text-muted" href="#">
@@ -325,71 +258,80 @@
                             </h6>
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">
-                                    <span data-feather="home"></span>
-                                    Dashboard <span class="sr-only">(current)</span>
+                                    <a class="nav-link active" href="/bookings">
+                                    <i class="fa fa-book"></i>&ensp;
+                                    Bookings <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file"></span>
-                                    Orders
+                                    <a class="nav-link" href="/billings">
+                                    <i class="fa fa-file"></i>&ensp;
+                                    Billings
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="shopping-cart"></span>
-                                    Products
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="users"></span>
+                                    <a class="nav-link" href="/customers">
+                                    <i class="fa fa-users"></i>&ensp;
                                     Customers
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="bar-chart-2"></span>
-                                    Reports
+                                    <a class="nav-link" href="/viewstyle">
+                                    <i class="fa fa-eye"></i>&ensp;
+                                    View Style
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="layers"></span>
-                                    Integrations
-                                    </a>
-                                </li>
-                            </u>
+                                
+                            </ul>
                             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                                <span>Saved reports</span>
+                                <span>Stocks</span>
                                 <a class="d-flex align-items-center text-muted" href="#">
                                     <span data-feather="plus-circle"></span>
                                 </a>
                             </h6>
                             <ul class="nav flex-column mb-2">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Current month
+                                    <a class="nav-link" href="/accessories">
+                                    <i class="fa fa-square"></i>&ensp;
+                                    Acessories
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Last quarter
+                                    <a class="nav-link" href="/styles">
+                                    <i class="fa fa-square"></i>&ensp;
+                                    Styles
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Social engagement
+                                    <a class="nav-link" href="/services">
+                                    <i class="fa fa-square"></i>&ensp;
+                                    Services
+                                    </a>
+                                </li>
+                            </ul>
+                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>Official</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                    <span data-feather="plus-circle"></span>
+                                </a>
+                            </h6>
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/staffs">
+                                    <i class="fa fa-users"></i>&ensp;
+                                    Staff
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <span data-feather="file-text"></span>
-                                    Year-end sale
+                                    <a class="nav-link" href="/assets">
+                                    <i class="fa fa-square"></i>&ensp;
+                                    Assets
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/roles">
+                                    <i class="fa fa-user-circle"></i>&ensp;
+                                    Role
                                     </a>
                                 </li>
                             </ul>

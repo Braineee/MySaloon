@@ -33,7 +33,7 @@ class LoginController extends Controller
         
         if(Auth::check()){
             if(Auth::user()->role_id == 4){
-                return route('/home'); // return the home page if the user is a customer
+                return route('viewstyle'); // return the home page if the user is a customer
             }else{
                 return route('bookings.index'); // return the home page if the user is a admin
             }
