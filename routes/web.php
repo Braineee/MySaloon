@@ -21,10 +21,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function(){
     Route::	resource('bookings', 'BookingController');
+
+
     Route::	resource('billings', 'BilingController');
 
     Route::	resource('customers', 'CustomerController');
     Route:: post('/customers/{id}', 'CustomerController@blockCustomer')->name('customers.blockCustomer');
+
+
 
     //stocks
     Route::	resource('accessories', 'AccessoryController');
@@ -32,9 +36,16 @@ Route::middleware(['auth'])->group(function(){
 
     Route::	resource('styles', 'StyleController');
     Route:: get('/styles/{id}', 'StyleController@destroy')->name('styles.destroy');
+    Route:: get('/viewstyle', 'StyleController@viewstyle')->name('viewstyle');
+    Route:: post('/viewstyle.search', 'StyleController@search')->name('viewstyle.search');
+    Route:: post('viewstyle/book', 'StyleController@book')->name('viewstyle.book');
+
 
     Route::	resource('services', 'ServiceController');
     Route:: get('/services/{id}', 'ServiceController@destroy')->name('services.destroy');
+
+
+    
 
     //official
     Route::	resource('staffs', 'StaffController');

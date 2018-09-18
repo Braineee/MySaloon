@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Booking;
 use Illuminate\Http\Request;
+use App\Http\Requests\BookingRequest;
 use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
@@ -44,9 +45,36 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookingRequest $request)
     {
-        //
+        if(Auth::check()){
+        
+            $validated = $request->validated(); //validate the users input
+
+            if($validated){
+            
+                //store the data
+                $book = Booking::create([
+                    'customer_id' => Auth::user()->id,
+                    'service_type_id' => $request->input('service'),
+                    'style_id' => $request->input('style'),
+                    'session' => $request->input('session')
+                ]);
+    
+                if($book){
+                    return redirect()->route('viewstyle')
+                    ->with('success','Booking was created successfully');
+                }else{
+                    return back()->withInput()->with('error','Sorry, Booking was not created');  
+                }
+
+
+            }else{
+                return back()->withInput()->with('error','Validation error');
+            }
+            
+        }
+        return back()->withInput()->with('error','Sorry Booking could not be created');
     }
 
     /**

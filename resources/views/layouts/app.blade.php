@@ -253,6 +253,12 @@
                                     Customers
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/viewstyle">
+                                    <i class="fa fa-eye"></i>&ensp;
+                                    View Style
+                                    </a>
+                                </li>
                                 
                                 
                             </u>

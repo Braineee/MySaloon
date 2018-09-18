@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\style;
+use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Requests\StyleCreateRequest;
 use App\Http\Requests\StyleUpdateRequest;
@@ -25,6 +26,66 @@ class StyleController extends Controller
 
         return view('auth.login');
     }
+
+    
+    /**
+     * Show styles to customers.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function viewstyle()
+    {
+        if(Auth::check()){ 
+            //get the list of assets 
+            $service = Service::find(1);
+            $styles = Style::all();
+            return view('viewstyle', ['styles' => $styles, 'services' => $service]);
+        }
+
+        return view('auth.login');
+    }
+
+
+
+    /**
+     * Show styles to customers.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $search)
+    {
+        if(Auth::check()){ 
+            //get the list of assets 
+            $service = Service::find(1);
+            $styles = Style::whereIn('sex', $search)->get();
+            return view('viewstyle', ['styles' => $styles, 'services' => $service]);
+        }
+
+        return view('auth.login');
+    }
+
+
+
+    /**
+     * Show styles to customers.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function book(Request $request)
+    {
+        if(Auth::check()){ 
+            //get the list of assets 
+            $style = Style::find($request->input('book'));
+            $services = Service::all();
+            return view('book', ['style' => $style, 'services' => $services]);
+        }
+
+        return view('auth.login');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
