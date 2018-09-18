@@ -23,13 +23,16 @@ Route::middleware(['auth'])->group(function(){
     Route::	resource('bookings', 'BookingController');
     Route::	resource('billings', 'BilingController');
 
+    Route::	resource('customers', 'CustomerController');
+    Route:: post('/customers/{id}', 'CustomerController@blockCustomer')->name('customers.blockCustomer');
+
     //stocks
     Route::	resource('accessories', 'AccessoryController');
     Route:: get('/accessories/{id}', 'AccessoryController@destroy')->name('accessories.destroy');
 
     Route::	resource('styles', 'StyleController');
     Route:: get('/styles/{id}', 'StyleController@destroy')->name('styles.destroy');
-    
+
     Route::	resource('services', 'ServiceController');
     Route:: get('/services/{id}', 'ServiceController@destroy')->name('services.destroy');
 

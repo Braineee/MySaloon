@@ -102,3 +102,14 @@ body {
 .bg-yellow{
   background-color: #f0ad4e;
 }
+
+.me {
+  display: block;
+  margin: 2em auto;
+  margin-bottom: 3em;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}

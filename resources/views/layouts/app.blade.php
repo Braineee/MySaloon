@@ -16,6 +16,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('css/avarta.css') }}" rel="stylesheet">
@@ -45,16 +46,21 @@
                 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                     <div class="sidebar-sticky">
                         <div class="text-center">
-                            <h2 style="padding-left:10px;">{{ Auth::user()->name }}</h2>
+                            @if(Auth::user()->picture == '')
+                            <img class="me" src="{{ asset('img/avatar.png') }}" alt="" />
+                            @else
+                            <img class="me" src="/storage/staffs/{{ Auth::user()->picture }}" alt="" />
+                            @endif
+                            <h4 style="padding-left:10px;">{{ Auth::user()->name }}</h4>
                             <small class="">
                                 @if(Auth::user()->role_id == 1)
-                                    <i class="fa fa-circle"></i><b style="color :#6c757d";>Manager</b>
+                                    <i class="fa fa-circle" style="color:0F0"></i>&ensp;<b style="color :#6c757d";>Manager</b>
                                 @elseif(Auth::user()->role_id == 2)
-                                    <i class="fa fa-circle"></i><b style="color :#6c757d";>Administrator</b>
+                                    <i class="fa fa-circle" style="color:0F0;"></i>&ensp;<b style="color :#6c757d";>Administrator</b>
                                 @elseif(Auth::user()->role_id == 3)
-                                    <i class="fa fa-circle"></i><b style="color :#6c757d";>Staff</b>
+                                    <i class="fa fa-circle" style="color:0F0"></i>&ensp;<b style="color :#6c757d";>Staff</b>
                                 @elseif(Auth::user()->role_id == 4)
-                                    <i class="fa fa-circle"></i><b style="color :#6c757d";>Customer</b>
+                                    <i class="fa fa-circle" style="color:0F0"></i>&ensp;<b style="color :#6c757d";>Customer</b>
                                 @endif
                             </small>
                         </div>
@@ -73,7 +79,7 @@
                             <ul class="nav flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#">
-                                    <span data-feather="home"></span>
+                                    <i class="fa fa-dashboard"></i>
                                     Dashboard <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
@@ -231,19 +237,19 @@
                             <ul class="nav flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="/bookings">
-                                    <span data-feather="home"></span>
+                                    <i class="fa fa-book"></i>&ensp;
                                     Bookings <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/billings">
-                                    <span data-feather="file"></span>
+                                    <i class="fa fa-file"></i>&ensp;
                                     Billings
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/customer">
-                                    <span data-feather="users"></span>
+                                    <a class="nav-link" href="/customers">
+                                    <i class="fa fa-users"></i>&ensp;
                                     Customers
                                     </a>
                                 </li>
@@ -259,19 +265,19 @@
                             <ul class="nav flex-column mb-2">
                                 <li class="nav-item">
                                     <a class="nav-link" href="/accessories">
-                                    <span data-feather="file-text"></span>
+                                    <i class="fa fa-square"></i>&ensp;
                                     Acessories
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/styles">
-                                    <span data-feather="file-text"></span>
+                                    <i class="fa fa-square"></i>&ensp;
                                     Styles
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/services">
-                                    <span data-feather="file-text"></span>
+                                    <i class="fa fa-square"></i>&ensp;
                                     Services
                                     </a>
                                 </li>
@@ -285,19 +291,19 @@
                             <ul class="nav flex-column mb-2">
                                 <li class="nav-item">
                                     <a class="nav-link" href="/staffs">
-                                    <span data-feather="file-text"></span>
+                                    <i class="fa fa-users"></i>&ensp;
                                     Staff
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/assets">
-                                    <span data-feather="file-text"></span>
+                                    <i class="fa fa-square"></i>&ensp;
                                     Assets
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/roles">
-                                    <span data-feather="file-text"></span>
+                                    <i class="fa fa-user-circle"></i>&ensp;
                                     Role
                                     </a>
                                 </li>
