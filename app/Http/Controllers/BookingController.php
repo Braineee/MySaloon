@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Booking;
 use Illuminate\Http\Request;
 use App\Http\Requests\BookingRequest;
@@ -20,6 +21,13 @@ class BookingController extends Controller
             //dump(Auth::user()->id); 
                 
             $bookings = Booking::all();
+
+            $bookings = DB::table('bookings')
+            ->join('users', 'bookings.customer_id', '=', 'users.id')
+            ->join('services', 'bookings.service_type_id', '=', 'services.id')
+            ->join('styles', 'bookings.style_id', '=', 'styles.id')
+            ->select('bookings.*', 'services.service_type', 'styles.name AS style_name', 'users.name')
+            ->get();
 
             return view('bookings.index', ['bookings' => $bookings]);
 
