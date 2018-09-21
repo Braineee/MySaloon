@@ -18,9 +18,9 @@ class BillingController extends Controller
         if(Auth::check()){
             //dump(Auth::user()->id); 
                 
-            $billings = Billing::all();
+            $billing = Billing::all();
 
-            return view('billings.index', ['billings' => $billings]);
+            return view('billings.index', ['billings' => $billing]);
 
             dump($billings);
         }
