@@ -59,7 +59,7 @@ class StaffController extends Controller
         //check if the user is logged in
         if(Auth::check()){
         
-            $validated = $request->validated(); //validate the users input
+            $validated = $request->validated(); //validate the users input request
 
             if($validated){
                 
