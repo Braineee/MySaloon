@@ -40,7 +40,7 @@
             @endif
         </div>
 
-        <!-- input for sex -->
+        <!-- input for Gender -->
         <div class="form-group">
             <label for="sex" class="label">Gender</label>
             <select 
